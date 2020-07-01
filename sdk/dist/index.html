@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started</title>
+    {% comment %} <script src="https://unpkg.com/lodash@4.16.6"></script> {% endcomment %}
+  </head>
+  <body>
+    <script src="tracker.js"></script>
+    <script>
+    let message_tracker = new optikpi.MessageDeliveryTracker("https://www.go.cum","apiKey");
+    message_tracker.messageDelivered("payload","token");
+    </script>
+  </body>
+</html>

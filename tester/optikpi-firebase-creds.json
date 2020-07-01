@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "optikpi",
+  "private_key_id": "9bbe4a4c09626e24c9e2571bb353f3b7386fd39c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDGTiaTga/ZOBlH\ny/IWu+UxSfqS/xTBkPTSHLetbkFSfTLFgpY5Tmkgh2J2mtRQGJaoipD1zKm4nm0x\nBPmq4dexR9+2hJvNOoAZu8LsYUdx1leA5L3isyGOQ8KA4IbqQDm/A/C2B0ax3FfK\nqGCmsW9cGbdus7uLGy5bocKAkGEpIo2KhOR/I1dKIEkHHYnBfJ72W7ZEiIUwSeNT\njBhnyBzhwi3QSOyPcc0Lp310TAJvyS21e8aWTUOonUVsa0thGeOndHpGenT2LMkF\n3e3wb2fQfBZH2Sa3SxGWyo7JBjewAyiv6VRJTwJXYGqGqxrKZjGbbzzQcDMgVQ9U\nuOIB0s13AgMBAAECggEAKqJetNPrBJ6FAOSeFbkr2172WmgxBDSwDgRSkRzlOmDk\na4ZZ2dQ70dyJlMpQ3y+KJI42AEKSMrkM7L8PFmgbwWecd1cnUAZFyEKP89YuUBEv\nGu0SzgyJKFb1GFQtbWuFfsXQGLKTxmWDEnUE4pG/SWPWBhzqM0wSuWybrpxb50W/\nmnLjtTJEcerhg/EFL9OaZbwvLlBreMgoJKl43yEoMGxRCIPIIcXfHZ8SKGbuxSOU\ndoX+pY94O+9wtVIbjOdG6lQ+MZQBYcfPT9kwV0KlYz6nTHMGmoBA919y7PBebaIq\nRmtIwnxfCdfum8TYbuYtiZFtFCxhbUKVaLW5Si1tMQKBgQDhgvV8xrj6s+wJFDiY\ngJQCDGxAsLDNUppRFounu/43/+7WiNmi2Z2HdWP0wVGAZSWDXG8ZvapKTLyBJQoa\nvGYxxNNQtPTUd/O0va5WqWM3kOq6TRTnh8kArUa1e/wcXsy+NT0PFOgTdWg9RZqg\nscmItmne1Lk4FIr9hQW/wd05HQKBgQDhHZJrGSWwj2KEphD/6yxhATelWkpwzb2C\nFuPsY/LACw9O5/8sigF1vmnpJjjqQdSCvNx4T1BYdz8NOzpdid6c9jsdwwv8nQQK\n4G6rgnEo1l55+X0moTrahW7gYThEak+sIYtTq9w9g4vPJQV/zko81J13LDMCSKeu\njJl6sqowowKBgGI7rbwAxKtQnM0Hpe+octDBoJY9YYbPKLGR5JvYZFD4h42kZ0lt\nChXrqPMBEwOfC8xBA5Ru7jMXYjXPcKtczhd36aUKbmvvJJXi2oKdnr6hvd4Rnb2N\nhJ1q3ZZIv/WLxhxFDKf5L27qgdHO9CBz0Zpf+5Y5i8VGDZWJ0ItLY5ZxAoGBAKo3\nBAk7AIaaRHHsZ5o6plnK49qBhRv6VTrSOBD8Ggcf1bliLk3tI+F10vtZzVtD333j\ndAj8X9IkiGZmzGEB6HNis5xzaNLfnrjirou8m/e278Tm4ryc2LV2gzniCPuiLxAG\nZSUlI+jXWJWOdrQGtZd9ZHtBzmgBq9iNs1dVVN5lAoGBAIyJW11wqFGnY6NsunlD\nMoC1u4ogMzWaD0zy0UdcZiET5GGjRXhna+jgBGjJHGOjRBcec0woBJMG2w4FDN8C\n4xDhdYNzBh9ajzY7LaM8tFB27udQVBh1kfD/fyx8dNpEHTMIxkQ+QB6iGNeVgh7V\nmJqGQWLQ/0/prD1W2K9PJSDL\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-qdn2p@optikpi.iam.gserviceaccount.com",
+  "client_id": "100677473518481756118",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-qdn2p%40optikpi.iam.gserviceaccount.com"
+}
