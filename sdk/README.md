@@ -1,43 +1,109 @@
-STEP 1 
+# OptiKPI Message Tracker SDK
 
-Include the optikpi tracker in your code base
+## SDK usage
+```javascript
+const URL = 'https://company.optikpi.com';
+const TOKEN = 'COMPANY_TOKEN'
+let message_tracker =  optikpi.getMessageTracker(URL,TOKEN);
+//After the message recieved
+message_tracker.updateMessageStatus(messagePayload, userPushToken, "Delivered")
+```   
 
-  <script src="http://cdn.com/optikpi-tracker.js"></script>
+### Usage in service worker
 
+##### 1. Importing the library in service worker
 
-STEP 2
+Import the optikpi tracker in `firebase-messaging-sw.js`
+```javascript
+importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js");
 
-Initialize optikpi message tracker
-let message_tracker = new this.optikpi.MessageDeliveryTracker(
-            "http://customer.optikpi.com",
-            "apiKey"
-          );
+importScripts("./optikpi-tracker.js");
+```
+##### 2. Adding event listener
+Add an event listener for `push` event in the `firebase-messaging-sw.js`
 
+```javascript
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved in SW]", event.data.json());
+});
+```
 
-STEP3
+##### 3. Getting the userToken from firebase
+We use the firebase sdk to fetch the userToken to send to the `updateMessageStatus(payload,token,deliverStatus)`
+```javascript
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved in SW]", event.data.json());
+   messaging.getToken().then((currentToken) => {
+    console.log("[User Token]",currentToken)''
+  });
+});```
 
-Inside firebase onMesaage call the optikpi tracker
+##### 4. Sending the delivery status to optikpi
+Invoke the  `updateMessageStatus(payload,token,deliverStatus)` with the appropriate arguments
+```javascript
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved in SW]", event.data.json());
+  messaging.getToken().then((currentToken) => {
+    message_tracker.updateMessageStatus(event.data.json(), currentToken, "Delivered");
+  });
+});
+});
+```
 
+#### Final `firebase-messaging-sw.js` would look something like this
+```javascript
 
-// [START receive_message]
-      // Handle incoming messages. Called when:
-      // - a message is received while the app has focus
-      // - the user clicks on an app notification created by a service worker
-      //   `messaging.setBackgroundMessageHandler` handler.
-      messaging.onMessage((payload) => {
-        console.log("Message received. ", payload);
-        messaging.getToken().then((currentToken) => {
-          
-          message_tracker.updateMessageStatus(
-            payload,
-            currentToken,
-            "Delivered"
-          );
-        });
+importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js");
+importScripts(
+  "https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"
+);
+importScripts("./optikpi-tracker.js");
+// Initialize the Firebase app in the service worker by passing in
+// your app's Firebase config object.
+// https://firebase.google.com/docs/web/setup#config-object
+firebase.initializeApp({
+  apiKey: "AIzaSyAU7jpJWmTAWTLofQsjJoebRG2Ro6lW4Jk",
+  authDomain: "optikpi.firebaseapp.com",
+  databaseURL: "https://optikpi.firebaseio.com",
+  projectId: "optikpi",
+  storageBucket: "optikpi.appspot.com",
+  messagingSenderId: "212508461716",
+  appId: "1:212508461716:web:1ea89daed73177453e4281",
+  measurementId: "G-P327EHDMLZ",
+});
 
-        // [START_EXCLUDE]
-        // Update the UI to include the received message.
-        appendMessage(payload);
-        // [END_EXCLUDE]
-      });
-      // [END receive_message]
+// Retrieve an instance of Firebase Messaging so that it can handle background
+// messages.
+const messaging = firebase.messaging();
+
+messaging.setBackgroundMessageHandler(function (payload) {
+  console.log(
+    "[firebase-messaging-sw.js] Received background message ",
+    payload
+  );
+  // Customize notification here
+  const notificationTitle = "Background Message Title";
+  const notificationOptions = {
+    body: "Background Message body.",
+    icon: "/firebase-logo.png",
+  };
+
+  return self.registration.showNotification(
+    notificationTitle,
+    notificationOptions
+  );
+});
+// [END background_handler]
+
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved in SW]", event.data.json());
+  messaging.getToken().then((currentToken) => {
+    let message_tracker =  optikpi.getMessageTracker(
+      "http://localhost:4000",
+      "apiKey"
+    );
+    message_tracker.updateMessageStatus(event.data.json(), currentToken, "Delivered");
+  });
+});
+```
