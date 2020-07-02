@@ -15,24 +15,23 @@
 // Give the service worker access to Firebase Messaging.
 // Note that you can only use Firebase Messaging here, other Firebase libraries
 // are not available in the service worker.
-importScripts('https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js');
+importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js");
 importScripts(
-  'https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js'
+  "https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"
 );
-
-
+importScripts("./tracker.js");
 // Initialize the Firebase app in the service worker by passing in
 // your app's Firebase config object.
 // https://firebase.google.com/docs/web/setup#config-object
 firebase.initializeApp({
-  apiKey: 'AIzaSyAU7jpJWmTAWTLofQsjJoebRG2Ro6lW4Jk',
-  authDomain: 'optikpi.firebaseapp.com',
-  databaseURL: 'https://optikpi.firebaseio.com',
-  projectId: 'optikpi',
-  storageBucket: 'optikpi.appspot.com',
-  messagingSenderId: '212508461716',
-  appId: '1:212508461716:web:1ea89daed73177453e4281',
-  measurementId: 'G-P327EHDMLZ',
+  apiKey: "AIzaSyAU7jpJWmTAWTLofQsjJoebRG2Ro6lW4Jk",
+  authDomain: "optikpi.firebaseapp.com",
+  databaseURL: "https://optikpi.firebaseio.com",
+  projectId: "optikpi",
+  storageBucket: "optikpi.appspot.com",
+  messagingSenderId: "212508461716",
+  appId: "1:212508461716:web:1ea89daed73177453e4281",
+  measurementId: "G-P327EHDMLZ",
 });
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
@@ -46,17 +45,15 @@ const messaging = firebase.messaging();
 // [START background_handler]
 messaging.setBackgroundMessageHandler(function (payload) {
   console.log(
-    '[firebase-messaging-sw.js] Received background message ',
+    "[firebase-messaging-sw.js] Received background message ",
     payload
   );
   // Customize notification here
-  const notificationTitle = 'Background Message Title';
+  const notificationTitle = "Background Message Title";
   const notificationOptions = {
-    body: 'Background Message body.',
-    icon: '/firebase-logo.png',
+    body: "Background Message body.",
+    icon: "/firebase-logo.png",
   };
-
-  
 
   return self.registration.showNotification(
     notificationTitle,
@@ -64,3 +61,14 @@ messaging.setBackgroundMessageHandler(function (payload) {
   );
 });
 // [END background_handler]
+
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved]", event.data.json());
+  messaging.getToken().then((currentToken) => {
+    let message_tracker = new this.optikpi.MessageDeliveryTracker(
+      "http://localhost:4000",
+      "apiKey"
+    );
+    message_tracker.updateMessageStatus(event.data.json(), currentToken, "Delivered");
+  });
+});

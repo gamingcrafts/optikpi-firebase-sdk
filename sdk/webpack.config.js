@@ -7,6 +7,6 @@ module.exports = {
     filename: "tracker.js",
     path: path.resolve(__dirname, "dist"),
     library: "optikpi",
-    libraryTarget: "umd",
+    libraryTarget: "this",
   },
 };

@@ -24,17 +24,17 @@ const chrome_web = 'dkKERxLD2bGQ9h0FNdyz4T:APA91bGk0w8CfaZq9pyPyiDtww6BPMGsDGVx3
 const chrome_local='eiHrJDATHbonwmPlUUXKqg:APA91bGOxuyxWlgaQsfvvSJBWo9SD341XANT5Zgr4KKoP8jCPlSZRyzxqXcMpaIsrpcnoaCK3Mp_rExTCMFgO3kzknXv8zdee4vVGGLJeCQ1sI1Jqxrup8PSTzPmrYKFZ7hwdXvBpb-n'
 const firefox_web='cQXekUHrHT5DbaVbuLR3Ac:APA91bGueAJeuR_CtmjP0dC-w0vBLoKjoFc7MFI86GU1mcBXWtRDESiXWbc8q8VCCYLn6xK4Bq1iRzqS8xBsqBdVtLq8-G7pXtZ5ncXaKAXUVcMXa8sHHkUSkTKld151OH9QXze_LNoc'
 const messageOne = {
-  token:firefox_web,
+  token:chrome_local,
   notification: {
     title: "Notification 1",
     body: "Notification 1 Body",
   },
   fcmOptions: {
-    analyticsLabel: "firebase-local",
+    analyticsLabel: "firebase-web-action",
   },
 };
 const messageTwo = {
-  token:chrome_web,
+  token:firefox_web,
   notification: {
     title: "Chrome Notification 2",
     body: " Chrome Notification 2 Body",
@@ -44,7 +44,7 @@ const messageTwo = {
     token:'dkKERxLD2bGQ9h0FNdyz4T:APA91bGk0w8CfaZq9pyPyiDtww6BPMGsDGVx3VB5cgaj08RXpCtdwRfI48T3jXZyJ3bFwnihZrQXB-pKsgLqlSVdxJtvgEyx3aLJjTXxjNaqcvqfZXSFa01R5G6VJYZK7I01n4I6S_9K'
   },
   fcmOptions: {
-    analyticsLabel: "action1-token2",
+    analyticsLabel: "chrome-web-action",
   },
 };
 const messages = [messageOne, messageTwo];
