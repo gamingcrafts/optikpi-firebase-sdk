@@ -37,7 +37,8 @@ addEventListener("push", (event) => {
    messaging.getToken().then((currentToken) => {
     console.log("[User Token]",currentToken)''
   });
-});```
+});
+```
 
 ##### 4. Sending the delivery status to optikpi
 Invoke the  `updateMessageStatus(payload,token,deliverStatus)` with the appropriate arguments
@@ -63,14 +64,14 @@ importScripts("./optikpi-tracker.js");
 // your app's Firebase config object.
 // https://firebase.google.com/docs/web/setup#config-object
 firebase.initializeApp({
-  apiKey: "AIzaSyAU7jpJWmTAWTLofQsjJoebRG2Ro6lW4Jk",
-  authDomain: "optikpi.firebaseapp.com",
+  apiKey: "API_KEY",
+  authDomain: "company.firebaseapp.com",
   databaseURL: "https://optikpi.firebaseio.com",
-  projectId: "optikpi",
-  storageBucket: "optikpi.appspot.com",
-  messagingSenderId: "212508461716",
-  appId: "1:212508461716:web:1ea89daed73177453e4281",
-  measurementId: "G-P327EHDMLZ",
+  projectId: "project",
+  storageBucket: "project.appspot.com",
+  messagingSenderId: "21250sdf8461716",
+  appId: "1:2125084d61716:web:1ea89ddaed73177453e4281",
+  measurementId: "G-P327EdfdHDMLZ",
 });
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
