@@ -1,0 +1,62 @@
+<html>
+<head><head>
+    <body>
+       <h2> OptiKPI SDK Sample App</h2>
+        <p id='firebase-token'>TOKEN: </p>
+        <button onclick="getToken()">Get Token</button>
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyAU7jpJWmTAWTLofQsjJoebRG2Ro6lW4Jk",
+                authDomain: "optikpi.firebaseapp.com",
+                databaseURL: "https://optikpi.firebaseio.com",
+                projectId: "optikpi",
+                storageBucket: "optikpi.appspot.com",
+                messagingSenderId: "212508461716",
+                appId: "1:212508461716:web:1ea89daed73177453e4281",
+                measurementId: "G-P327EHDMLZ",
+              };
+        
+              // Initialize Firebase
+              firebase.initializeApp(firebaseConfig);
+              const messaging = firebase.messaging();
+              // [END get_messaging_object]
+              // [START set_public_vapid_key]
+              // Add the public key generated from the console here.
+              messaging.usePublicVapidKey(
+                "BM5kZGDtLjrXfk-8TN3RI9ZELirUCooqn_2_43DUN-SodKIb0gACWYvf-LSD4ZVP16DXgqX-p6675DAZsydu0fY"
+              );
+              // [END set_public_vapid_key]
+        </script>
+        <script>
+            function deleteToken(){
+                console.log("Token Deleted");
+            }
+            function getToken(){
+                messaging
+          .getToken()
+          .then((currentToken) => {
+            if (currentToken) {
+              console.log('[Current Push Token]',currentToken);
+            } else {
+              // Show permission request.
+              console.log(
+                "No Instance ID token available. Request permission to generate one."
+              );
+            }
+          })
+          .catch((err) => {
+            console.log("An error occurred while retrieving token. ", err);
+    
+          });
+            }
+            function createToken(){
+
+            }
+        </script>
+      </body>
+
+</html>

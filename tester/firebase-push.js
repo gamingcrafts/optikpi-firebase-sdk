@@ -20,11 +20,11 @@ console.log(admin.apps);
 var messaging = app.messaging();
 
 const firefox_local = 'fYIBCY7CH6uJwmpw2nAAlv:APA91bGAQhhMhoLksCEyYeLRxyIod6z1KDiRWvnHv0o9S6yfr-0IgkZaYK8RDsoSdW-Rv9XIs4oT-o40oi1vNCu8yqeXAYb86Gii6XhsRZUfixQT0KOgWOrV6-T0BJtpcrM_5oNvqyv1'
-const chrome_web = 'dkKERxLD2bGQ9h0FNdyz4T:APA91bGk0w8CfaZq9pyPyiDtww6BPMGsDGVx3VB5cgaj08RXpCtdwRfI48T3jXZyJ3bFwnihZrQXB-pKsgLqlSVdxJtvgEyx3aLJjTXxjNaqcvqfZXSFa01R5G6VJYZK7I01n4I6S_9K'
+const chrome_web = 'dkKERxLD2bGQ9h0FNdyz4T:APA91bFPJBiPh0anU00c2Tiyqcp4mp1D8kfyJvJIjAUqO0M5UOQrxq1G9u7Ws0To9VdPZN1ImfYCKW1zElzoURLTFVERExf_-P4FLoncIW1muDbRBeaLmvDkFueraj1YfTK1psJjPAMi'
 const chrome_local='eiHrJDATHbonwmPlUUXKqg:APA91bGOxuyxWlgaQsfvvSJBWo9SD341XANT5Zgr4KKoP8jCPlSZRyzxqXcMpaIsrpcnoaCK3Mp_rExTCMFgO3kzknXv8zdee4vVGGLJeCQ1sI1Jqxrup8PSTzPmrYKFZ7hwdXvBpb-n'
 const firefox_web='cQXekUHrHT5DbaVbuLR3Ac:APA91bGueAJeuR_CtmjP0dC-w0vBLoKjoFc7MFI86GU1mcBXWtRDESiXWbc8q8VCCYLn6xK4Bq1iRzqS8xBsqBdVtLq8-G7pXtZ5ncXaKAXUVcMXa8sHHkUSkTKld151OH9QXze_LNoc'
 const messageOne = {
-  token:chrome_local,
+  token:chrome_web,
   notification: {
     title: "Notification 1",
     body: "Notification 1 Body",
