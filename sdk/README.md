@@ -41,8 +41,9 @@ addEventListener("push", (event) => {
 ```
 
 ##### 4. Sending the delivery status to optikpi
-Invoke the  `updateMessageStatus(payload,token,deliverStatus)` with the appropriate arguments
+Get the `getMessageTracker` and invoke the  `updateMessageStatus(payload,token,deliverStatus)` with the appropriate arguments.
 ```javascript
+let message_tracker = optikpi.getMessageTracker("https://company.optikpi.com","apiKey");
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
   messaging.getToken().then((currentToken) => {
