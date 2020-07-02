@@ -104,7 +104,7 @@ limitations under the License.
 
       <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
       <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"></script>
-      <script src="tracker.js"></script>
+      <script src="optikpi-tracker.js"></script>
     </body>
 
     <script>
@@ -166,13 +166,16 @@ limitations under the License.
       // - a message is received while the app has focus
       // - the user clicks on an app notification created by a service worker
       //   `messaging.setBackgroundMessageHandler` handler.
+
+      let message_tracker = optikpi.getMessageTracker(
+        "http://localhost:4000",
+        "apiKey"
+      );
       messaging.onMessage((payload) => {
         console.log("Message received. ", payload);
         messaging.getToken().then((currentToken) => {
-          let message_tracker = new this.optikpi.MessageDeliveryTracker(
-            "http://localhost:4000",
-            "apiKey"
-          );
+          console.log("[Push Message Recieved by onMessage]", payload);
+
           message_tracker.updateMessageStatus(
             payload,
             currentToken,

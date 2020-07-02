@@ -23,21 +23,24 @@ const firefox_local = 'fYIBCY7CH6uJwmpw2nAAlv:APA91bGAQhhMhoLksCEyYeLRxyIod6z1KD
 const chrome_web = 'dkKERxLD2bGQ9h0FNdyz4T:APA91bFPJBiPh0anU00c2Tiyqcp4mp1D8kfyJvJIjAUqO0M5UOQrxq1G9u7Ws0To9VdPZN1ImfYCKW1zElzoURLTFVERExf_-P4FLoncIW1muDbRBeaLmvDkFueraj1YfTK1psJjPAMi'
 const chrome_local='eiHrJDATHbonwmPlUUXKqg:APA91bGOxuyxWlgaQsfvvSJBWo9SD341XANT5Zgr4KKoP8jCPlSZRyzxqXcMpaIsrpcnoaCK3Mp_rExTCMFgO3kzknXv8zdee4vVGGLJeCQ1sI1Jqxrup8PSTzPmrYKFZ7hwdXvBpb-n'
 const firefox_web='cQXekUHrHT5DbaVbuLR3Ac:APA91bGueAJeuR_CtmjP0dC-w0vBLoKjoFc7MFI86GU1mcBXWtRDESiXWbc8q8VCCYLn6xK4Bq1iRzqS8xBsqBdVtLq8-G7pXtZ5ncXaKAXUVcMXa8sHHkUSkTKld151OH9QXze_LNoc'
+
+const linux_chrome_local = 'f66nFPPhD9wtf5aEuey38W:APA91bHWj-ncWw4wWoIeOz1OfyWBTcLL9ebN8k8U8nsNc3SFoB9JY2JUGKBu2LCduekF7z-Ne-7TBqaCvTueAyKgka_8_quU71dMwy37yN2zKVzVvEWYufhcZA_WKRYjFCc1khwLttaq';
+const linux_firefox_local = 'd4xGYs9EaLO3Zz1GmaoYq2:APA91bE77Kshap7xmFNYGX1UZLhQANxgrZQzvWAiuUXolsAQTJF6fOqcbkddXn-xSAXt-LnfNy-TEYCLbc1HUMvE6KeR-YNNRkMyhtowl1lK3qAwBX0NPymwPnfjflm0Fl7FJ9V1ysRQ'
 const messageOne = {
-  token:chrome_web,
+  token:linux_chrome_local,
   notification: {
-    title: "Notification 1",
-    body: "Notification 1 Body",
+    title: "Chrome Push Message",
+    body: "Strike the iron while it is hot.",
   },
   fcmOptions: {
     analyticsLabel: "firebase-web-action",
   },
 };
 const messageTwo = {
-  token:firefox_web,
+  token:linux_firefox_local,
   notification: {
-    title: "Chrome Notification 2",
-    body: " Chrome Notification 2 Body",
+    title: "Firefox Push Message",
+    body: " Prevention is better than cure.",
   },
   data:{
     actionId:'actionOne',

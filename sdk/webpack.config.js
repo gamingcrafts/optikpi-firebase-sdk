@@ -4,9 +4,9 @@ module.exports = {
   entry: "./src/index.js",
   mode: "production",
   output: {
-    filename: "tracker.js",
+    filename: "optikpi-tracker.js",
     path: path.resolve(__dirname, "dist"),
     library: "optikpi",
-    libraryTarget: "this",
+    libraryTarget: "var",
   },
 };
