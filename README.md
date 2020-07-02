@@ -12,11 +12,10 @@ This repository contains the following apps
 ## Installation and Usage Instructions
 
 ### Client app
-
+Checkout [Firebase-cli](https://firebase.google.com/docs/cli)
 ```sh
 cd client/messaging
-#Make sure the firebase-cli is installed and logged in with the firebase account.
-# Firebase-cli  [https://firebase.google.com/docs/cli]
+# Make sure the firebase-cli is installed and logged in with the firebase account.
 firebase serve
 firebase deploy
 ```
