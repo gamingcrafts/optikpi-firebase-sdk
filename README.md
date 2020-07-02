@@ -16,6 +16,7 @@ This repository contains the following apps
 ```sh
 cd client/messaging
 #Make sure the firebase-cli is installed and logged in with the firebase account.
+# Firebase-cli  [https://firebase.google.com/docs/cli]
 firebase serve
 firebase deploy
 ```
@@ -40,5 +41,6 @@ node firebase-push.js
 
 ```sh
 cd sample
+npm install
 node .
 ```
