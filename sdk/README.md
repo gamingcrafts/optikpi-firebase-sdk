@@ -98,15 +98,12 @@ messaging.setBackgroundMessageHandler(function (payload) {
 // [END background_handler]
 
 //[START OPTKPI Push Message Tracking]
-let message_tracker = optikpi.getMessageTracker("https://httpdump.io/g4qfy","apiKey");
+let message_tracker = optikpi.getMessageTracker("https://company.optikpi.com","apiKey");
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
+
   messaging.getToken().then((currentToken) => {
-    message_tracker.updateMessageStatus(
-      event.data.json(),
-      currentToken,
-      "Delivered"
-    );
+    message_tracker.updateMessageStatus(event.data.json(),currentToken,"Delivered");
   });
 });
 //[END OPTKPI Push Message Tracking]
