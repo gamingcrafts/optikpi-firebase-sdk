@@ -1,11 +1,13 @@
 STEP 1 
-//Include the optikpi tracker in your code base
+
+Include the optikpi tracker in your code base
 
   <script src="http://cdn.com/optikpi-tracker.js"></script>
 
 
 STEP 2
-//Initialize optikpi message tracker
+
+Initialize optikpi message tracker
 let message_tracker = new this.optikpi.MessageDeliveryTracker(
             "http://localhost:4000",
             "apiKey"
@@ -14,7 +16,7 @@ let message_tracker = new this.optikpi.MessageDeliveryTracker(
 
 STEP3
 
-//Inside firebase onMesaage call the optikpi tracker
+Inside firebase onMesaage call the optikpi tracker
 
 
 // [START receive_message]
