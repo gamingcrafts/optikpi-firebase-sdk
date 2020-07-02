@@ -9,7 +9,7 @@ STEP 2
 
 Initialize optikpi message tracker
 let message_tracker = new this.optikpi.MessageDeliveryTracker(
-            "http://localhost:4000",
+            "http://customer.optikpi.com",
             "apiKey"
           );
 
