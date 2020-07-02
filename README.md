@@ -15,6 +15,7 @@ This repository contains the following apps
 
 ```sh
 cd client/messaging
+#Make sure the firebase-cli is installed and logged in with the firebase account.
 firebase serve
 firebase deploy
 ```
