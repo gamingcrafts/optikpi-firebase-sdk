@@ -8,38 +8,3 @@ This repository contains the following apps
 | sdk | Source code for the OPTIKPI Push tracking sdk. |
 | tester | A utility app to send push messages to test tokens. |
 | sample | A demo app to show how to create/fetch firebase push tokens. |
-
-## Installation and Usage Instructions
-
-### Client app
-Checkout [Firebase-cli](https://firebase.google.com/docs/cli)
-```sh
-cd client/messaging
-# Make sure the firebase-cli is installed and logged in with the firebase account.
-firebase serve
-firebase deploy
-```
-
-### sdk
-
-```sh
-cd sdk
-npm install
-npm run build
-```
-
-### tester
-
-```sh
-cd tester
-npm install
-node firebase-push.js
-```
-
-### sample
-
-```sh
-cd sample
-npm install
-node .
-```
