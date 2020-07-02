@@ -13,23 +13,31 @@ This repository contains the following apps
 
 ### Client app
 
-```cd client/messaging
+```sh
+cd client/messaging
 firebase serve
-firebase deploy```
+firebase deploy
+```
 
 ### sdk
 
-```cd sdk
+```sh
+cd sdk
 npm install
-npm run build```
+npm run build
+```
 
 ### tester
 
-```cd tester
+```sh
+cd tester
 npm install
-node firebase-push.js```
+node firebase-push.js
+```
 
 ### sample
 
-```cd sample
-node .```
+```sh
+cd sample
+node .
+```
