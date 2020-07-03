@@ -3,19 +3,40 @@ export class MessageDeliveryTracker {
   constructor(ingestUrl, apiToken) {
     this.ingestUrl = ingestUrl;
     this.apiToken = apiToken;
+    this.IDENTIFIER_TYPES = {
+      PUSH: "optikpiPush",
+      EMAIL: "optikpiEmail",
+      SMS: "optikpiSMS",
+    };
   }
 
-  updateMessageStatus(payload, token, goal) {
-    const url = this.ingestUrl + "/ingest/firebase/webhook";
-    console.log("MESSAGE-DELIVERED", payload, token);
-    return this.sendDeliveryStatus(url, payload, token, goal);
+  trackPushMessage(actionId, token, message) {
+    return this.track(actionId, this.IDENTIFIER_TYPES.PUSH, token, message);
+  }
+  /**
+   * actionId - ID of the optikpi Action
+   * identifier - Push Token/EmailId/Phone Number
+   * identifierType - optikpiPush/optikpiEmail/optikpiContact/optikpiKey
+   * message - Any String, eg: Delivered, clicked, opened etc
+   */
+
+  track(actionId, identifierType, identifier, message) {
+    return this.sendDeliveryStatus(
+      actionId,
+      identifierType,
+      identifier,
+      message
+    );
   }
 
-  async sendDeliveryStatus(url, payload, token, goal) {
+  async sendDeliveryStatus(actionId, identifierType, identifier, message) {
+    const url = this.ingestUrl + "/ingest/optikpi/track/";
+    //console.log("MESSAGE-DELIVERED", message, identifier);
     const trackerObj = {
-      payload,
-      token,
-      goal
+      actionId,
+      identifierType,
+      identifier,
+      message,
     };
     try {
       const response = await fetch(url, {
@@ -24,6 +45,7 @@ export class MessageDeliveryTracker {
         cache: "no-cache",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `JWT ${this.apiToken}`,
         },
         body: JSON.stringify(trackerObj),
       });
