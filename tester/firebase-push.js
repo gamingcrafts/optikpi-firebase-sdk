@@ -27,7 +27,7 @@ const firefox_web='cQXekUHrHT5DbaVbuLR3Ac:APA91bGueAJeuR_CtmjP0dC-w0vBLoKjoFc7MF
 const linux_chrome_local = 'f66nFPPhD9wtf5aEuey38W:APA91bHWj-ncWw4wWoIeOz1OfyWBTcLL9ebN8k8U8nsNc3SFoB9JY2JUGKBu2LCduekF7z-Ne-7TBqaCvTueAyKgka_8_quU71dMwy37yN2zKVzVvEWYufhcZA_WKRYjFCc1khwLttaq';
 const linux_firefox_local = 'd4xGYs9EaLO3Zz1GmaoYq2:APA91bE77Kshap7xmFNYGX1UZLhQANxgrZQzvWAiuUXolsAQTJF6fOqcbkddXn-xSAXt-LnfNy-TEYCLbc1HUMvE6KeR-YNNRkMyhtowl1lK3qAwBX0NPymwPnfjflm0Fl7FJ9V1ysRQ'
 const messageOne = {
-  token:linux_chrome_local,
+  token:chrome_local,
   notification: {
     title: "Chrome Push Message",
     body: "Strike the iron while it is hot.",
@@ -37,7 +37,7 @@ const messageOne = {
   },
 };
 const messageTwo = {
-  token:linux_firefox_local,
+  token:firefox_local,
   notification: {
     title: "Firefox Push Message",
     body: " Prevention is better than cure.",

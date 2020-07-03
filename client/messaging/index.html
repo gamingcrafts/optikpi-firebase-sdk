@@ -169,15 +169,15 @@ limitations under the License.
 
       let message_tracker = optikpi.getMessageTracker(
         "http://localhost:4000",
-        "apiKey"
+        "jwtToken"
       );
       messaging.onMessage((payload) => {
         console.log("Message received. ", payload);
         messaging.getToken().then((currentToken) => {
           console.log("[Push Message Recieved by onMessage]", payload);
 
-          message_tracker.updateMessageStatus(
-            payload,
+          message_tracker.trackPushMessage(
+            payload.fcmOptions.analyticsLabel,
             currentToken,
             "Delivered"
           );
