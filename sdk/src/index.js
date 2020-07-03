@@ -56,3 +56,7 @@ export class MessageDeliveryTracker {
     }
   }
 }
+
+export function getMessageTracker(url,token){
+  return new MessageDeliveryTracker(url,token);
+}

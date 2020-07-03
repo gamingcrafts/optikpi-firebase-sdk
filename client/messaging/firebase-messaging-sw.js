@@ -19,7 +19,7 @@ importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js");
 importScripts(
   "https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"
 );
-importScripts("./tracker.js");
+importScripts("./optikpi-tracker.js");
 // Initialize the Firebase app in the service worker by passing in
 // your app's Firebase config object.
 // https://firebase.google.com/docs/web/setup#config-object
@@ -62,13 +62,16 @@ messaging.setBackgroundMessageHandler(function (payload) {
 });
 // [END background_handler]
 
+//[START OPTKPI Push Message Tracking]
+let message_tracker = optikpi.getMessageTracker("https://httpdump.io/g4qfy","apiKey");
 addEventListener("push", (event) => {
-  console.log("[Push Message Recieved]", event.data.json());
+  console.log("[Push Message Recieved in SW]", event.data.json());
   messaging.getToken().then((currentToken) => {
-    let message_tracker = new this.optikpi.MessageDeliveryTracker(
-      "http://localhost:4000",
-      "apiKey"
+    message_tracker.updateMessageStatus(
+      event.data.json(),
+      currentToken,
+      "Delivered"
     );
-    message_tracker.updateMessageStatus(event.data.json(), currentToken, "Delivered");
   });
 });
+//[END OPTKPI Push Message Tracking]
