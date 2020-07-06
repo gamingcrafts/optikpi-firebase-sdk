@@ -23,7 +23,7 @@ This api can be invoked from the client side to update the delivery status of op
 | 500 | Error |
 
 #### Auth
-Bearer type auth. `Authorization` header with value `JTW **YOUR_TOKEN**`
+Bearer type auth. `Authorization` header with value `Basic **YOUR_TOKEN**`
 
 #### body
 
@@ -37,7 +37,7 @@ Bearer type auth. `Authorization` header with value `JTW **YOUR_TOKEN**`
 #### CURL
 ```sh
 curl --location --request POST 'https://company.optikpi.com/ingest/optikpi/tracker' \
---header 'Authorization: JWT **YOUR_JWT_TOKEN**' \
+--header 'Authorization: Basic **YOUR_JWT_TOKEN**' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "actionId":"Cool-Action",

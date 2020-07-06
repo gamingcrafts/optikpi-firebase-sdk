@@ -4,9 +4,10 @@ export class MessageDeliveryTracker {
     this.ingestUrl = ingestUrl;
     this.apiToken = apiToken;
     this.IDENTIFIER_TYPES = {
-      PUSH: "optikpiPush",
-      EMAIL: "optikpiEmail",
-      SMS: "optikpiSMS",
+      PUSH: "PUSH",
+      EMAIL: "EMAIL",
+      SMS: "SMS",
+      OPTKPI_KEY:"OPTIKPI_KEY"
     };
   }
 
