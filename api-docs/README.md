@@ -41,7 +41,7 @@ curl --location --request POST 'https://company.optikpi.com/ingest/optikpi/track
 --header 'Content-Type: application/json' \
 --data-raw '{
   "actionId":"Cool-Action",
-  "identifierType":"optikpiPush",
+  "identifierType":"PUSH",
   "identifier":"some-push-token",
   "message":"delivered"
 }'
