@@ -1,0 +1,50 @@
+
+openapi: 3.0.0
+info:
+  title: OptiKPI Message Tracker
+  description: Tracks the optikpi action messages.
+  version: 1.0.0
+servers:
+- url: https://company.optikpi.com/ingest/optikpi
+  description: Company Server
+security:
+- bearerAuth: []
+paths:
+  /track:
+    post:
+      tags:
+      - Track Action Message
+      summary: Updates the message status
+      description: This api can be invoked from the client side to update the delivery
+        status of optikpi messages.(Eg. delivered, clicked, opened etc)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
+      responses:
+        "201":
+          description: Message status updated
+        "400":
+          description: Invalid input, object invalid
+        "500":
+          description: Error
+components:
+  schemas:
+    body:
+      type: object
+      properties:
+        actionId:
+          type: string
+        identifierType:
+          type: string
+        identifier:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
