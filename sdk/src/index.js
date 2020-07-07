@@ -46,7 +46,7 @@ export class MessageDeliveryTracker {
         cache: "no-cache",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `JWT ${this.apiToken}`,
+          "Authorization": `Basic ${this.apiToken}`,
         },
         body: JSON.stringify(trackerObj),
       });

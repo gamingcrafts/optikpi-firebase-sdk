@@ -68,7 +68,7 @@ let message_tracker = optikpi.getMessageTracker("http://localhost:4000",
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
   messaging.getToken().then((currentToken) => {
-    message_tracker.updateMessageStatus(
+    message_tracker.trackPushMessage(
       event.data.json().fcmOptions.analyticsLabel,
       currentToken,
       "Delivered"
