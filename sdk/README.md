@@ -6,7 +6,11 @@ const URL = 'https://company.optikpi.com';
 const TOKEN = 'COMPANY_TOKEN'
 let message_tracker =  optikpi.getMessageTracker(URL,TOKEN);
 //After the message recieved
-message_tracker.updateMessageStatus(messagePayload, userPushToken, "Delivered")
+message_tracker.trackPushMessage(
+                  event.data.json().fcmOptions.analyticsLabel,
+                  currentToken,
+                  "Delivered"
+              );
 ```   
 
 ### Usage in service worker
@@ -30,7 +34,7 @@ addEventListener("push", (event) => {
 ```
 
 ##### 3. Getting the userToken from firebase
-We use the firebase sdk to fetch the userToken to send to the `updateMessageStatus(payload,token,deliverStatus)`
+We use the firebase sdk to fetch the userToken to send to the `trackPushMessage(payload,token,deliverStatus)`
 ```javascript
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
@@ -41,16 +45,19 @@ addEventListener("push", (event) => {
 ```
 
 ##### 4. Sending the delivery status to optikpi
-Get the `getMessageTracker` and invoke the  `updateMessageStatus(payload,token,deliverStatus)` with the appropriate arguments.
+Get the `getMessageTracker` and invoke the  `updateMessageStatus(event.data.json().fcmOptions.analyticsLabel,token,deliverStatus)` with the appropriate arguments.
 ```javascript
 let message_tracker = optikpi.getMessageTracker("https://company.optikpi.com","apiKey");
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
   messaging.getToken().then((currentToken) => {
-    message_tracker.updateMessageStatus(event.data.json(), currentToken, "Delivered");
+    message_tracker.trackPushMessage(
+                  event.data.json().fcmOptions.analyticsLabel,
+                  currentToken,
+                  "Delivered"
+              );
   });
-});
-});
+ });
 ```
 
 #### Final `firebase-messaging-sw.js` would look something like this
@@ -102,10 +109,13 @@ messaging.setBackgroundMessageHandler(function (payload) {
 let message_tracker = optikpi.getMessageTracker("https://company.optikpi.com","apiKey");
 addEventListener("push", (event) => {
   console.log("[Push Message Recieved in SW]", event.data.json());
-
   messaging.getToken().then((currentToken) => {
-    message_tracker.updateMessageStatus(event.data.json(),currentToken,"Delivered");
+    message_tracker.trackPushMessage(
+                  event.data.json().fcmOptions.analyticsLabel,
+                  currentToken,
+                  "Delivered"
+              );
   });
-});
+ }); 
 //[END OPTKPI Push Message Tracking]
 ```
