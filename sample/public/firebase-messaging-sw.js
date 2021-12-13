@@ -2,6 +2,7 @@ importScripts("https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js");
 importScripts(
   "https://www.gstatic.com/firebasejs/7.15.0/firebase-messaging.js"
 );
+importScripts("./optikpi-tracker.js");
 // Initialize the Firebase app in the service worker by passing in
 // your app's Firebase config object.
 // https://firebase.google.com/docs/web/setup#config-object
@@ -33,3 +34,15 @@ messaging.setBackgroundMessageHandler(function (payload) {
     return self.registration.showNotification(notificationTitle,
         notificationOptions);
 });
+
+//[START OPTKPI Push Message Tracking]
+let message_tracker = optikpi.getMessageTracker("http://localhost:7070");
+addEventListener("push", (event) => {
+  console.log("[Push Message Recieved in SW]", event.data.json());
+  messaging.getToken().then((currentToken) => {
+    message_tracker.trackPushMessage(
+      event.data.json().fcmMessageId,
+    );
+  });
+});
+//[END OPTKPI Push Message Tracking]
