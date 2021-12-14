@@ -32,29 +32,23 @@
               // [END set_public_vapid_key]
         </script>
         <script>
-            function deleteToken(){
-                console.log("Token Deleted");
-            }
             function getToken(){
-                messaging
-          .getToken()
-          .then((currentToken) => {
-            if (currentToken) {
-              console.log('[Current Push Token]',currentToken);
-            } else {
-              // Show permission request.
-              console.log(
-                "No Instance ID token available. Request permission to generate one."
-              );
-            }
-          })
-          .catch((err) => {
-            console.log("An error occurred while retrieving token. ", err);
-    
-          });
-            }
-            function createToken(){
-
+              messaging
+              .getToken()
+              .then((currentToken) => {
+                if (currentToken) {
+                  console.log('[Current Push Token]',currentToken);
+                } else {
+                  // Show permission request.
+                  console.log(
+                    "No Instance ID token available. Request permission to generate one."
+                  );
+                }
+              })
+              .catch((err) => {
+                console.log("An error occurred while retrieving token. ", err);
+        
+              });
             }
         </script>
       </body>
