@@ -21,8 +21,8 @@ This guide provides step-by-step instructions to integrate the OptiKPI Push SDK 
 
         <script src="optikpi-push-sdk.js"></script>
         <script>
-          const OPTIKPI_PUSH_KEY = 'BG3So7E-gsRd23peOO20oG1FoB8RpYhncivSuCuj9wsD9GWt6eErYJbmMF3Y0LHtJVOwBtfF5bVIneFBqClCBVE';
-          const OPTIKPI_CUSTOMER_ID = '1234567';
+          const OPTIKPI_PUSH_KEY = 'OPTIKPI_PUSH_KEY';
+          const OPTIKPI_CUSTOMER_ID = 'OPTIKPI_CUSTOMER_ID';
           window.optiKPIPushSDK = new PushSDK(OPTIKPI_PUSH_KEY, OPTIKPI_CUSTOMER_ID);
           window.optiKPIPushSDK.init();
         </script>
