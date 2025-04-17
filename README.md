@@ -22,15 +22,15 @@ This guide provides step-by-step instructions to integrate the OptiKPI Push SDK 
         <script src="optikpi-push-sdk.js"></script>
         <script>
           const OPTIKPI_PUSH_KEY = 'OPTIKPI_PUSH_KEY';
-          const OPTIKPI_CUSTOMER_ID = 'OPTIKPI_CUSTOMER_ID';
-          window.optiKPIPushSDK = new PushSDK(OPTIKPI_PUSH_KEY, OPTIKPI_CUSTOMER_ID);
+          const OPTIKPI_PUSH_END_POINT = 'OPTIKPI_PUSH_END_POINT';
+          window.optiKPIPushSDK = new PushSDK(OPTIKPI_PUSH_KEY, OPTIKPI_PUSH_END_POINT);
           window.optiKPIPushSDK.init();
         </script>
     </body>
     </html>
     ```
 
-3. **Fill Variables and Initialize `PushSDK`**: Replace the placeholder values with your actual `OPTIKPI_PUSH_KEY`, `OPTIKPI_CUSTOMER_ID`. Pass these values to the `PushSDK` class and initialize it.
+3. **Fill Variables and Initialize `PushSDK`**: Replace the placeholder values with your actual `OPTIKPI_PUSH_KEY`, `OPTIKPI_PUSH_END_POINT`. Pass these values to the `PushSDK` class and initialize it.
 
 4. **Register Push Token During Login**: Call `window.optiKPIPushSDK.registerPushToken` during user login and pass the `userId` as an argument.
 
@@ -39,7 +39,7 @@ This guide provides step-by-step instructions to integrate the OptiKPI Push SDK 
         // Your login logic here
 
         // Register push token
-        window.optiKPIPushSDK.registerPushToken(userId);
+        window.optiKPIPushSDK.registerPushToken(userId, customerId);
     }
     ```
 
@@ -50,7 +50,7 @@ This guide provides step-by-step instructions to integrate the OptiKPI Push SDK 
         // Your logout logic here
 
         // Unregister push token
-        window.optiKPIPushSDK.unRegisterPushToken(userId);
+        window.optiKPIPushSDK.unRegisterPushToken(userId, customerId);
     }
     ```
 
@@ -72,18 +72,18 @@ Here is a complete example of an HTML file with the OptiKPI Push SDK integration
     <script src="optikpi-push-sdk.js"></script>
     <script>
       const OPTIKPI_PUSH_KEY = 'OPTIKPI_PUSH_KEY';
-      const OPTIKPI_CUSTOMER_ID = 'OPTIKPI_CUSTOMER_ID';
-      window.optiKPIPushSDK = new PushSDK(OPTIKPI_PUSH_KEY, OPTIKPI_CUSTOMER_ID);
+      const OPTIKPI_PUSH_END_POINT = 'OPTIKPI_PUSH_END_POINT';
+      window.optiKPIPushSDK = new PushSDK(OPTIKPI_PUSH_KEY, OPTIKPI_PUSH_END_POINT);
       window.optiKPIPushSDK.init();
 
       function login(userId) {
           // Your login logic here
-          window.optiKPIPushSDK.registerPushToken(userId);
+          window.optiKPIPushSDK.registerPushToken(userId, customerId);
       }
 
       function logout(userId) {
           // Your logout logic here
-          window.optiKPIPushSDK.unRegisterPushToken(userId);
+          window.optiKPIPushSDK.unRegisterPushToken(userId, customerId);
       }
     </script>
 </body>
